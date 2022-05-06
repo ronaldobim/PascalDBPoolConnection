@@ -14,6 +14,10 @@ Using connection pooling on application servers increases application performanc
 
 ## Initialize Pool
 ```
+{$IFDEF FPC}
+  {$MODE Delphi}
+{$ENDIF}
+
 function NewDatabase(ATenantDatabase: string): TComponent;
 var
   Conn: TZConnection;
