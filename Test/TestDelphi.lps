@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="TestDelphi.dpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="8"/>
+        <CursorPos X="37" Y="20"/>
+        <UsageCount Value="31"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uMain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="96"/>
+        <CursorPos X="19" Y="112"/>
+        <UsageCount Value="31"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="204"/>
+        <CursorPos X="21" Y="220"/>
+        <UsageCount Value="31"/>
+        <Bookmarks Count="1">
+          <Item0 X="9" Y="116" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Core\DBPoolConnection.Interfaces.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="8"/>
+        <CursorPos X="50" Y="10"/>
+        <UsageCount Value="31"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win64\classes.pp"/>
+        <UnitName Value="Classes"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="25"/>
+        <CursorPos X="51" Y="31"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-generics\src\inc\generics.dictionariesh.inc"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="603"/>
+        <CursorPos X="44" Y="615"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-generics\src\generics.collections.pas"/>
+        <UnitName Value="Generics.Collections"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="132"/>
+        <CursorPos X="52" Y="144"/>
+        <UsageCount Value="12"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="1675"/>
+        <CursorPos X="3" Y="1687"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\sysutilh.inc"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="110"/>
+        <CursorPos X="57" Y="118"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="184" TopLine="172"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="185" TopLine="172"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="186" TopLine="172"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="187" TopLine="172"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="188" TopLine="172"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="189" TopLine="172"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="166" TopLine="161"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="192" TopLine="181"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="98" TopLine="88"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="67" Column="56" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="12" Column="40"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="61" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="59" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="66" Column="102" TopLine="55"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="12" Column="13"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="172" Column="35" TopLine="156"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="57" Column="24" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="220" Column="21" TopLine="204"/>
+      </Position>
+      <Position>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
+        <Caret Line="50" Column="17" TopLine="39"/>
+      </Position>
+      <Position>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
+        <Caret Line="117" Column="3" TopLine="115"/>
+      </Position>
+      <Position>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
+        <Caret Line="46" Column="17" TopLine="38"/>
+      </Position>
+      <Position>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
+        <Caret Line="128" Column="3" TopLine="125"/>
+      </Position>
+      <Position>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
+        <Caret Line="48" Column="17" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.Interfaces.pas"/>
+        <Caret Line="10" Column="50"/>
+      </Position>
+      <Position>
+        <Filename Value="TestDelphi.dpr"/>
+        <Caret Line="15" Column="25" TopLine="3"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="78" Column="35" TopLine="68"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="80" Column="27" TopLine="68"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="41" Column="17" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="uMain.pas"/>
+        <Caret Line="112" Column="19" TopLine="96"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
