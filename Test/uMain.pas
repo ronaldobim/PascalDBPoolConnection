@@ -73,15 +73,9 @@ end;
 
 procedure TFrmMain.FormCreate(Sender: TObject);
 begin
-  {$IFDEF FPC}
-  FPool := TDBPoolConnection.GetInstance
-    .SetMaxPool(100)
-    .SetOnCreateDatabaseComponent(TCreateDatabaseComponentEvent(NewDatabase));
-  {$ELSE}
   FPool := TDBPoolConnection.GetInstance
     .SetMaxPool(100)
     .SetOnCreateDatabaseComponent(NewDatabase);
-  {$ENDIF}
 end;
 
 function NewDatabase(ATenantDatabase: string): TComponent;
