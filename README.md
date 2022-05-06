@@ -1,10 +1,10 @@
 # PascalDBPoolConnection
 Generic Database Connection Pooling for Delphi/Lazarus/FreePascal
 
-# Why use a connection pool?
+## Why use a connection pool?
 Using connection pooling on application servers increases application performance. Avoiding connections at all times.
 
-# Functionalities
+## Functionalities
 * Compatibility with Delphi XE7(Up) and Lazarus(Last version).
 * Simple and secure, just request connections to the pool. connections are returned to the pool automatically using reference counting.
 * Fully Thread-Safe, test project included to perform stress testing.
@@ -12,7 +12,7 @@ Using connection pooling on application servers increases application performanc
 * Multitenant Control.
 * Flexible to use with any development framework (Datasnap, Horse, RDW, etc).
 
-# Initialize Pool
+## Initialize Pool
 ```
 function NewDatabase(ATenantDatabase: string): TComponent;
 var
@@ -32,7 +32,7 @@ begin
     .SetOnCreateDatabaseComponent(NewDatabase);
 end;
 ```
-# Get connection from pool
+## Get connection from pool
 ```
 var
   vDBConnection: IDBConnection;
