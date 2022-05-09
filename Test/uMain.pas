@@ -58,7 +58,7 @@ var
   i: Integer;
   t: TThreadTest;
 begin
-  for i := 1 to 100 do
+  for i := 1 to 200 do
   begin
     t := TThreadTest.Create(True);
     t.FreeOnTerminate := True;

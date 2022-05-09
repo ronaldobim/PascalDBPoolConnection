@@ -9,7 +9,7 @@
         <Filename Value="TestDelphi.dpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos X="50" Y="7"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -20,22 +20,21 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="70"/>
-        <CursorPos X="38" Y="75"/>
-        <UsageCount Value="31"/>
+        <TopLine Value="56"/>
+        <CursorPos X="25" Y="62"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="..\Core\DBPoolConnection.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="204"/>
-        <CursorPos X="21" Y="220"/>
-        <UsageCount Value="31"/>
+        <TopLine Value="190"/>
+        <CursorPos X="55" Y="208"/>
+        <UsageCount Value="32"/>
         <Bookmarks Count="1">
-          <Item0 X="9" Y="116" ID="1"/>
+          <Item0 X="9" Y="120" ID="1"/>
         </Bookmarks>
         <Loaded Value="True"/>
       </Unit>
@@ -43,8 +42,9 @@
         <Filename Value="..\Core\DBPoolConnection.Interfaces.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="8"/>
-        <CursorPos X="50" Y="10"/>
-        <UsageCount Value="31"/>
+        <TopLine Value="8"/>
+        <CursorPos X="20" Y="25"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -97,121 +97,121 @@
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="12" Column="40"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="61" TopLine="55"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="59" TopLine="55"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="66" Column="102" TopLine="55"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="12" Column="13"/>
+        <Filename Value="..\Core\DBPoolConnection.Interfaces.pas"/>
+        <Caret Line="17" Column="77" TopLine="8"/>
       </Position>
       <Position>
         <Filename Value="..\Core\DBPoolConnection.pas"/>
-        <Caret Line="172" Column="35" TopLine="156"/>
+        <Caret Line="59" Column="76" TopLine="42"/>
       </Position>
       <Position>
         <Filename Value="..\Core\DBPoolConnection.pas"/>
-        <Caret Line="57" Column="24" TopLine="40"/>
+        <Caret Line="295" Column="18" TopLine="292"/>
       </Position>
       <Position>
         <Filename Value="..\Core\DBPoolConnection.pas"/>
-        <Caret Line="220" Column="21" TopLine="204"/>
       </Position>
       <Position>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
-        <Caret Line="50" Column="17" TopLine="39"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="57" Column="31" TopLine="37"/>
       </Position>
       <Position>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
-        <Caret Line="117" Column="3" TopLine="115"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="73" Column="9" TopLine="53"/>
       </Position>
       <Position>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
-        <Caret Line="46" Column="17" TopLine="38"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="184" Column="48" TopLine="165"/>
       </Position>
       <Position>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
-        <Caret Line="128" Column="3" TopLine="125"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="279" Column="45" TopLine="259"/>
       </Position>
       <Position>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-base\src\syncobjs.pp"/>
-        <Caret Line="48" Column="17" TopLine="34"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="282" Column="21" TopLine="262"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="356" Column="9" TopLine="336"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="73" Column="7" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="184" Column="46" TopLine="165"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="282" Column="7" TopLine="262"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="356" Column="7" TopLine="336"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="55" Column="21" TopLine="37"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="113" Column="3" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="53" Column="17" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="121" Column="16" TopLine="116"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="185" Column="46" TopLine="166"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="283" Column="7" TopLine="263"/>
+      </Position>
+      <Position>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="347" Column="45" TopLine="336"/>
       </Position>
       <Position>
         <Filename Value="..\Core\DBPoolConnection.Interfaces.pas"/>
-        <Caret Line="10" Column="50"/>
+        <Caret Line="25" Column="20" TopLine="8"/>
       </Position>
       <Position>
-        <Filename Value="TestDelphi.dpr"/>
-        <Caret Line="15" Column="25" TopLine="3"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="60" Column="19" TopLine="39"/>
       </Position>
       <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="78" Column="35" TopLine="68"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="297" Column="3" TopLine="281"/>
       </Position>
       <Position>
-        <Filename Value="uMain.pas"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="54" Column="28" TopLine="40"/>
       </Position>
       <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="80" Column="27" TopLine="68"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="123" Column="36" TopLine="117"/>
       </Position>
       <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="41" Column="17" TopLine="34"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="112" Column="19" TopLine="72"/>
+        <Filename Value="..\Core\DBPoolConnection.pas"/>
+        <Caret Line="51" Column="17" TopLine="42"/>
       </Position>
       <Position>
         <Filename Value="uMain.pas"/>
-        <Caret Line="77" Column="6" TopLine="67"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="76" Column="15" TopLine="56"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="41" Column="23" TopLine="19"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="79" Column="46" TopLine="57"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="83" Column="46" TopLine="61"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="87" Column="21" TopLine="74"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="39" Column="7" TopLine="46"/>
-      </Position>
-      <Position>
-        <Filename Value="uMain.pas"/>
-        <Caret Line="83" Column="33" TopLine="69"/>
+        <Caret Line="75" Column="58" TopLine="70"/>
       </Position>
     </JumpHistory>
     <RunParams>

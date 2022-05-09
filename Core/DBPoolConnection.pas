@@ -41,8 +41,12 @@ type
     class function New(ATenantDatabase: string; ADatabaseComponent: TComponent): IDBConnection;
   end;
 
+  { TDBPoolConnection }
+
   TDBPoolConnection = class(TInterfacedObject, IDBPoolConnection)
   private
+    FMaxPool: Integer;
+    FWaitAvailableConnection: Boolean;
     FOnCreateDatabaseComponent: TCreateDatabaseComponentEvent;
     function GetAvailableConnection(ATenantDatabse: string; AConnectionList: TThreadList<TDBConnectionItem>): IDBConnection;
     function HaveDuplicatedConnection(ADatabaseComponent: TComponent): Boolean;
@@ -54,6 +58,7 @@ type
     class function GetInstance: IDBPoolConnection;
     function SetMaxPool(AMaxPool: Integer): IDBPoolConnection;
     function SetOnCreateDatabaseComponent(AValue: TCreateDatabaseComponentEvent): IDBPoolConnection;
+    function WaintAvailableConnection(AValue: Boolean): IDBPoolConnection;
     function GetDBConnection: IDBConnection; overload;
     function GetDBConnection(ATenantDatabase: string): IDBConnection; overload;
     function GetStatus: string;
@@ -67,7 +72,6 @@ uses
 var
   FDBPoolSingleton: IDBPoolConnection;
   FPool: TDictionary<string,TThreadList<TDBConnectionItem>>;
-  FMaxPool: Integer;
   FLockPool: TCriticalSection;
 
 { TDBPoolConnection }
@@ -115,6 +119,8 @@ begin
   inherited Create;
   FPool := TDictionary<string,TThreadList<TDBConnectionItem>>.Create;
   FLockPool := TCriticalSection.Create;
+  FMaxPool:= 10;
+  FWaitAvailableConnection := True;
 end;
 
 destructor TDBPoolConnection.Destroy;
@@ -164,35 +170,43 @@ var
   i: Integer;
 begin
   Result := nil;
-  try
-    vList := AConnectionList.LockList;
-    //search for available connection in Pool
-    for i:= 0 to vList.Count -1 do
-    begin
-      vItem := vList.Items[i];
-      if not vItem.Locked then
+
+  while (Result = nil) do
+  begin
+    try
+      vList := AConnectionList.LockList;
+      //search for available connection in Pool
+      for i:= 0 to vList.Count -1 do
       begin
+        vItem := vList.Items[i];
+        if not vItem.Locked then
+        begin
+          vItem.Locked := True;
+          vItem.LastUse := Now;
+          Result := TDBConnection.New(ATenantDatabse, vItem.DatabaseComponent);
+          Break;
+        end;
+      end;
+      if (Result = nil) and (vList.Count < FMaxPool) then
+      begin
+        //create new connection database
+        vDatabaseComponent := FOnCreateDatabaseComponent(ATenantDatabse);
+        vItem := TDBConnectionItem.Create;
+        vItem.DatabaseComponent := vDatabaseComponent;
         vItem.Locked := True;
         vItem.LastUse := Now;
+        vList.Add(vItem);
         Result := TDBConnection.New(ATenantDatabse, vItem.DatabaseComponent);
-        Break;
       end;
+    finally
+      AConnectionList.UnlockList;
     end;
-    if (Result = nil) and (vList.Count < FMaxPool) then
-    begin
-      //create new connection database
-      vDatabaseComponent := FOnCreateDatabaseComponent(ATenantDatabse);
-      vItem := TDBConnectionItem.Create;
-      vItem.DatabaseComponent := vDatabaseComponent;
-      vItem.Locked := True;
-      vItem.LastUse := Now;
-      vList.Add(vItem);
-      Result := TDBConnection.New(ATenantDatabse, vItem.DatabaseComponent);
-    end;
-  finally
-    AConnectionList.UnlockList;
-  end;
 
+    if (Result = nil) and (not FWaitAvailableConnection) then
+      Break
+    else if Result = nil then
+      Sleep(100);//wait few milliseconds and try again
+  end;
 end;
 
 function TDBPoolConnection.GetDBConnection(
@@ -286,6 +300,13 @@ begin
   FOnCreateDatabaseComponent := AValue;
 end;
 
+function TDBPoolConnection.WaintAvailableConnection(AValue: Boolean
+  ): IDBPoolConnection;
+begin
+  Result := Self;
+  FWaitAvailableConnection := AValue;
+end;
+
 { TDBConnection }
 
 constructor TDBConnection.Create(ATenantDatabase: string; ADatabaseComponent: TComponent);
@@ -344,7 +365,6 @@ begin
 end;
 
 initialization
-  FMaxPool := 10;
   FDBPoolSingleton := nil;
   FLockPool := nil;
 

@@ -22,6 +22,7 @@ type
   ['{BB99A3F8-ACC7-43A5-A9C4-F01799A5BAF2}']
     function SetMaxPool(AMaxPool: Integer): IDBPoolConnection;
     function SetOnCreateDatabaseComponent(AValue: TCreateDatabaseComponentEvent): IDBPoolConnection;
+    function WaintAvailableConnection(AValue: Boolean): IDBPoolConnection;
     function GetDBConnection: IDBConnection; overload;
     function GetDBConnection(ATenantDatabase: string): IDBConnection; overload;
     function GetStatus: string;
