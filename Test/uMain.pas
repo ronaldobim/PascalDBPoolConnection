@@ -38,7 +38,7 @@ type
     procedure Execute; override;
   end;
 
-  function NewDatabase(ATenantDatabase: string): TComponent;
+  function NewDatabase(ATenantDatabase: string): TObject;
 
 var
   FrmMain: TFrmMain;
@@ -78,7 +78,7 @@ begin
     .SetOnCreateDatabaseComponent(NewDatabase);
 end;
 
-function NewDatabase(ATenantDatabase: string): TComponent;
+function NewDatabase(ATenantDatabase: string): TObject;
 var
   Conn: TZConnection;
 begin

@@ -170,35 +170,43 @@ var
   i: Integer;
 begin
   Result := nil;
-  try
-    vList := AConnectionList.LockList;
-    //search for available connection in Pool
-    for i:= 0 to vList.Count -1 do
-    begin
-      vItem := vList.Items[i];
-      if not vItem.Locked then
+
+  while (Result = nil) do
+  begin
+    try
+      vList := AConnectionList.LockList;
+      //search for available connection in Pool
+      for i:= 0 to vList.Count -1 do
       begin
+        vItem := vList.Items[i];
+        if not vItem.Locked then
+        begin
+          vItem.Locked := True;
+          vItem.LastUse := Now;
+          Result := TDBConnection.New(ATenantDatabse, vItem.DatabaseComponent);
+          Break;
+        end;
+      end;
+      if (Result = nil) and (vList.Count < FMaxPool) then
+      begin
+        //create new connection database
+        vDatabaseComponent := FOnCreateDatabaseComponent(ATenantDatabse);
+        vItem := TDBConnectionItem.Create;
+        vItem.DatabaseComponent := vDatabaseComponent;
         vItem.Locked := True;
         vItem.LastUse := Now;
+        vList.Add(vItem);
         Result := TDBConnection.New(ATenantDatabse, vItem.DatabaseComponent);
-        Break;
       end;
+    finally
+      AConnectionList.UnlockList;
     end;
-    if (Result = nil) and (vList.Count < FMaxPool) then
-    begin
-      //create new connection database
-      vDatabaseComponent := FOnCreateDatabaseComponent(ATenantDatabse);
-      vItem := TDBConnectionItem.Create;
-      vItem.DatabaseComponent := vDatabaseComponent;
-      vItem.Locked := True;
-      vItem.LastUse := Now;
-      vList.Add(vItem);
-      Result := TDBConnection.New(ATenantDatabse, vItem.DatabaseComponent);
-    end;
-  finally
-    AConnectionList.UnlockList;
-  end;
 
+    if (Result = nil) and (not FWaitAvailableConnection) then
+      Break
+    else if Result = nil then
+      Sleep(100);//wait few milliseconds and try again
+  end;
 end;
 
 function TDBPoolConnection.GetDBConnection(

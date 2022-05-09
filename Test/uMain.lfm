@@ -1,39 +1,38 @@
 object FrmMain: TFrmMain
   Left = 378
-  Height = 448
+  Height = 299
   Top = 192
-  Width = 978
+  Width = 652
   Caption = 'Test'
-  ClientHeight = 448
-  ClientWidth = 978
+  ClientHeight = 299
+  ClientWidth = 652
   Color = clBtnFace
-  DesignTimePPI = 144
   Font.Color = clWindowText
-  Font.Height = -17
+  Font.Height = -11
   Font.Name = 'Tahoma'
   OnCreate = FormCreate
   LCLVersion = '2.2.0.4'
   object Button1: TButton
-    Left = 24
-    Height = 38
-    Top = 12
-    Width = 112
+    Left = 16
+    Height = 25
+    Top = 8
+    Width = 75
     Caption = 'Test'
     OnClick = Button1Click
     TabOrder = 0
   end
   object Memo1: TMemo
-    Left = 24
-    Height = 363
-    Top = 58
-    Width = 942
+    Left = 16
+    Height = 242
+    Top = 39
+    Width = 628
     TabOrder = 1
   end
   object Button2: TButton
-    Left = 146
-    Height = 38
-    Top = 12
-    Width = 112
+    Left = 97
+    Height = 25
+    Top = 8
+    Width = 75
     Caption = 'Status'
     OnClick = Button2Click
     TabOrder = 2

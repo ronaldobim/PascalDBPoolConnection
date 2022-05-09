@@ -22,23 +22,23 @@ type
   private
     FLocked: Boolean;
     FLastUse: TDate;
-    FDatabaseComponent: TComponent;
+    FDatabaseComponent: TObject;
   public
     property Locked: Boolean read FLocked write FLocked;
     property LastUse: TDate read FLastUse write FLastUse;
-    property DatabaseComponent: TComponent read FDatabaseComponent write FDatabaseComponent;//Zeos,UniDac,etc
+    property DatabaseComponent: TObject read FDatabaseComponent write FDatabaseComponent;//Zeos,UniDac,etc
   end;
 
   TDBConnection = class(TInterfacedObject, IDBConnection)
   private
-    FDatabaseComponent: TComponent;
+    FDatabaseComponent: TObject;
     FTenantDatabase: string;
-    function GetDatabaseComponent: TComponent;
+    function GetDatabaseComponent: TObject;
     procedure UnlockConnection;
   public
-    constructor Create(ATenantDatabase: string; ADatabaseComponent: TComponent);
+    constructor Create(ATenantDatabase: string; ADatabaseComponent: TObject);
     destructor Destroy; override;
-    class function New(ATenantDatabase: string; ADatabaseComponent: TComponent): IDBConnection;
+    class function New(ATenantDatabase: string; ADatabaseComponent: TObject): IDBConnection;
   end;
 
   { TDBPoolConnection }
@@ -49,7 +49,7 @@ type
     FWaitAvailableConnection: Boolean;
     FOnCreateDatabaseComponent: TCreateDatabaseComponentEvent;
     function GetAvailableConnection(ATenantDatabse: string; AConnectionList: TThreadList<TDBConnectionItem>): IDBConnection;
-    function HaveDuplicatedConnection(ADatabaseComponent: TComponent): Boolean;
+    function HaveDuplicatedConnection(ADatabaseComponent: TObject): Boolean;
     procedure FreePool;
     constructor CreatePrivate;
   public
@@ -82,7 +82,7 @@ begin
 end;
 
 function TDBPoolConnection.HaveDuplicatedConnection(
-  ADatabaseComponent: TComponent): Boolean;
+  ADatabaseComponent: TObject): Boolean;
 var
   vTenantDatabase: string;
   vConnectionList: TThreadList<TDBConnectionItem>;
@@ -166,7 +166,7 @@ function TDBPoolConnection.GetAvailableConnection(ATenantDatabse: string;
 var
   vList: TList<TDBConnectionItem>;
   vItem: TDBConnectionItem;
-  vDatabaseComponent: TComponent;
+  vDatabaseComponent: TObject;
   i: Integer;
 begin
   Result := nil;
@@ -309,7 +309,7 @@ end;
 
 { TDBConnection }
 
-constructor TDBConnection.Create(ATenantDatabase: string; ADatabaseComponent: TComponent);
+constructor TDBConnection.Create(ATenantDatabase: string; ADatabaseComponent: TObject);
 begin
   inherited Create;
   FDatabaseComponent := ADatabaseComponent;
@@ -322,12 +322,12 @@ begin
   inherited;
 end;
 
-function TDBConnection.GetDatabaseComponent: TComponent;
+function TDBConnection.GetDatabaseComponent: TObject;
 begin
   Result := FDatabaseComponent;
 end;
 
-class function TDBConnection.New(ATenantDatabase: string; ADatabaseComponent: TComponent): IDBConnection;
+class function TDBConnection.New(ATenantDatabase: string; ADatabaseComponent: TObject): IDBConnection;
 begin
   Result := TDBConnection.Create(ATenantDatabase, ADatabaseComponent);
 end;

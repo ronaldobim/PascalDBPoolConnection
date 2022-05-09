@@ -11,7 +11,7 @@ uses Classes;
 
 type
 
-  TCreateDatabaseComponentEvent = {$IFNDEF FPC}reference to {$ENDIF}function(ATenantDatabase: string): TComponent;
+  TCreateDatabaseComponentEvent = {$IFNDEF FPC}reference to {$ENDIF}function(ATenantDatabase: string): TObject;
 
 implementation
 

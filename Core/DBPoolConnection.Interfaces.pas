@@ -14,8 +14,8 @@ type
 
   IDBConnection = interface
   ['{7BEE7CD3-7054-4080-B4A8-B021F2392A0D}']
-    function GetDatabaseComponent: TComponent;
-    property DatabaseComponent: TComponent read GetDatabaseComponent;
+    function GetDatabaseComponent: TObject;
+    property DatabaseComponent: TObject read GetDatabaseComponent;
   end;
 
   IDBPoolConnection = interface
