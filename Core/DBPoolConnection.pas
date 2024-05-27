@@ -21,11 +21,11 @@ type
   TDBConnectionItem = class
   private
     FLocked: Boolean;
-    FLastUse: TDate;
+    FLastUse: TDateTime;
     FDatabaseComponent: TObject;
   public
     property Locked: Boolean read FLocked write FLocked;
-    property LastUse: TDate read FLastUse write FLastUse;
+    property LastUse: TDateTime read FLastUse write FLastUse;
     property DatabaseComponent: TObject read FDatabaseComponent write FDatabaseComponent;//Zeos,UniDac,etc
   end;
 
@@ -46,17 +46,20 @@ type
   TDBPoolConnection = class(TInterfacedObject, IDBPoolConnection)
   private
     FMaxPool: Integer;
+    FCleanUpTimeout: Integer;
     FWaitAvailableConnection: Boolean;
     FOnCreateDatabaseComponent: TCreateDatabaseComponentEvent;
     function GetAvailableConnection(ATenantDatabse: string; AConnectionList: TThreadList<TDBConnectionItem>): IDBConnection;
     function HaveDuplicatedConnection(ADatabaseComponent: TObject): Boolean;
     procedure FreePool;
+    procedure CleanUpConnections(AList: TList<TDBConnectionItem>);
     constructor CreatePrivate;
   public
     constructor Create;
     destructor Destroy; override;
     class function GetInstance: IDBPoolConnection;
     function SetMaxPool(AMaxPool: Integer): IDBPoolConnection;
+    function SetCleanUpTimeout(ACleanUpTimeout: Integer): IDBPoolConnection;
     function SetOnCreateDatabaseComponent(AValue: TCreateDatabaseComponentEvent): IDBPoolConnection;
     function WaintAvailableConnection(AValue: Boolean): IDBPoolConnection;
     function GetDBConnection: IDBConnection; overload;
@@ -67,7 +70,8 @@ type
 implementation
 
 uses
-  StrUtils;
+  StrUtils,
+  DateUtils;
 
 var
   FDBPoolSingleton: IDBPoolConnection;
@@ -109,6 +113,28 @@ begin
   Result := vCount > 1;
 end;
 
+procedure TDBPoolConnection.CleanUpConnections(AList: TList<TDBConnectionItem>);
+var
+  i: Integer;
+  vItem: TDBConnectionItem;
+  vNow: TDateTime;
+begin
+  if FCleanUpTimeout = 0 then Exit;
+  vNow := Now;
+
+  for i:= AList.Count -1 downto 0 do
+  begin
+    vItem := AList.Items[i];
+    if (not vItem.Locked) and
+       (MilliSecondsBetween(vNow, vItem.LastUse) >= FCleanUpTimeout) then
+    begin
+      vItem.DatabaseComponent.Free;
+      vItem.Free;
+      AList.Delete(i);
+    end;
+  end;
+end;
+
 constructor TDBPoolConnection.Create;
 begin
   raise EDBPoolConnectionException.Create('Use TDBPoolConnection.GetInstance');
@@ -120,6 +146,7 @@ begin
   FPool := TDictionary<string,TThreadList<TDBConnectionItem>>.Create;
   FLockPool := TCriticalSection.Create;
   FMaxPool:= 10;
+  FCleanUpTimeout := 0;
   FWaitAvailableConnection := True;
 end;
 
@@ -175,6 +202,7 @@ begin
   begin
     try
       vList := AConnectionList.LockList;
+      CleanUpConnections(vList);
       //search for available connection in Pool
       for i:= 0 to vList.Count -1 do
       begin
@@ -285,6 +313,13 @@ begin
   vStatus := vStatus + 'Duplicated Connections: '+IntToStr(vDuplicated)+
     IfThen(vDuplicated=0, ' ITs OK', ' THIS IS NOT GOOD');
   Result := vStatus;
+end;
+
+function TDBPoolConnection.SetCleanUpTimeout(
+  ACleanUpTimeout: Integer): IDBPoolConnection;
+begin
+  Result := Self;
+  FCleanUpTimeout := ACleanUpTimeout;
 end;
 
 function TDBPoolConnection.SetMaxPool(AMaxPool: Integer): IDBPoolConnection;
